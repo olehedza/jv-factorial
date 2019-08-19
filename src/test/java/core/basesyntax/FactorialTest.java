@@ -3,8 +3,6 @@ package core.basesyntax;
 import org.junit.Assert;
 import org.junit.Test;
 
-import java.math.BigInteger;
-
 public class FactorialTest {
     private static int ZERO = 0;
     private static int ONE = 1;
@@ -14,7 +12,7 @@ public class FactorialTest {
     public void getFactorialFromZero() {
         Factorial factorial = new Factorial();
         int actualResult = factorial.getFactorial(ZERO);
-        int expectedResult = getFactorial(ZERO);
+        int expectedResult = 1;
 
         Assert.assertEquals("Test failed with actual result " + actualResult,
                 expectedResult,
@@ -25,7 +23,7 @@ public class FactorialTest {
     public void getFactorialFromOne() {
         Factorial factorial = new Factorial();
         int actualResult = factorial.getFactorial(ONE);
-        int expectedResult = getFactorial(ONE);
+        int expectedResult = 1;
 
         Assert.assertEquals("Test failed with actual result " + actualResult,
                 expectedResult,
@@ -36,18 +34,10 @@ public class FactorialTest {
     public void getFactorialFromSeven() {
         Factorial factorial = new Factorial();
         int actualResult = factorial.getFactorial(SEVEN);
-        int expectedResult = getFactorial(SEVEN);
+        int expectedResult = 5040;
 
         Assert.assertEquals("Test failed with actual result " + actualResult,
                 expectedResult,
                 actualResult);
-    }
-
-    private static int getFactorial(int number) {
-        BigInteger result = BigInteger.valueOf(1);
-        for (int i = 2; i <= number; i++) {
-            result = result.multiply(BigInteger.valueOf(i));
-        }
-        return result.intValue();
     }
 }
